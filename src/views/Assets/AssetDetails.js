@@ -69,70 +69,70 @@ class AssetDetails extends Component {
         <tr>
         <td>{k}</td>
         <td>{v}</td>
+          <td align="right">
+            <i className="cui-note"></i>&nbsp;&nbsp;
+            <i className="cui-circle-x"></i></td>
         </tr>
       );
     })
 
     return (
       <div className="animated fadeIn">
-              <Row>
-                <Col xs="12" sm="12" md="12">
-                  <Card>
-                    <CardHeader>
-                      <b>{this.state.a.name}</b>
-                    </CardHeader>
-                    <CardBody>
+           <Row>
+            <Col xs="12" sm="12" md="12">
+              <Card>
+                <CardHeader>
+                  <b>{this.state.a.name}</b>
+                </CardHeader>
+                <CardBody>
+                  <Row>
+                    <Col xs="4" sm="3" md="3">
+                      <img alt={this.state.a.name} className="img-thumbnail" src={this.state.a.image}/>
+                    </Col>
+                    <Col xs="8" sm="9" md="9">
                       <Row>
-                        <Col xs="4" sm="3" md="3">
-                          <img alt={this.state.a.name} className="img-thumbnail" src={this.state.a.image}/>
+                        <Col xs="5" sm="5" md="5">
+                          <dl className="row">
+
+                            <dt className="col-sm-4">Category</dt>
+                            <dd className="col-sm-8">{this.state.a.category.name}</dd>
+                            <dt className="col-sm-4">Make</dt>
+                            <dd className="col-sm-8">{this.state.a.make}</dd>
+
+                            <dt className="col-sm-4">Model</dt>
+                            <dd className="col-sm-8">{this.state.a.model}</dd>
+
+                            <dt className="col-sm-4">Serial #</dt>
+                            <dd className="col-sm-8">{this.state.a.serial_number}</dd>
+
+                            <dt className="col-sm-4">Install Date</dt>
+                            <dd className="col-sm-8">{this.state.a.install_date}</dd>
+
+                            <dt className="col-sm-4">Department</dt>
+                            <dd className="col-sm-8">{this.state.a.department.name}</dd>
+                          </dl>
                         </Col>
-                        <Col xs="8" sm="9" md="9">
+                        <Col xs="6" sm="6" md="6">
                           <Row>
-                            <Col xs="5" sm="5" md="5">
-                              <dl className="row">
-
-                                <dt className="col-sm-4">Category</dt>
-                                <dd className="col-sm-8">{this.state.a.category.name}</dd>
-                                <dt className="col-sm-4">Make</dt>
-                                <dd className="col-sm-8">{this.state.a.make}</dd>
-
-                                <dt className="col-sm-4">Model</dt>
-                                <dd className="col-sm-8">{this.state.a.model}</dd>
-
-                                <dt className="col-sm-4">Serial #</dt>
-                                <dd className="col-sm-8">{this.state.a.serial_number}</dd>
-
-                                <dt className="col-sm-4">Install Date</dt>
-                                <dd className="col-sm-8">{this.state.a.install_date}</dd>
-
-                                <dt className="col-sm-4">Department</dt>
-                                <dd className="col-sm-8">{this.state.a.department.name}</dd>
-                              </dl>
+                            <Col xs="12" sm="6" lg="6">
+                              <Widget02 header="0" mainText="Open Work Orders" icon="fa fa-cogs" color="secondary" invert />
+                              <Widget02 header="0" mainText="Open Work Orders" icon="fa fa-cogs" color="primary" />
                             </Col>
-                            <Col xs="6" sm="6" md="6">
-                              <Row>
-
-          <Col xs="12" sm="6" lg="6">
-            <Widget02 header="0" mainText="Open Work Orders" icon="fa fa-cogs" color="secondary" invert />
-            <Widget02 header="0" mainText="Open Work Orders" icon="fa fa-cogs" color="primary" />
-          </Col>
-
-          <Col xs="12" sm="6" lg="6">
-            <Widget02 header="0" mainText="Open Work Orders" icon="fa fa-cogs" color="primary" />
-            <Widget02 header="0" mainText="Open Work Orders" icon="fa fa-cogs" color="primary" />
-          </Col>
-                              </Row>
-                              <Row>
-                              </Row>
+                            <Col xs="12" sm="6" lg="6">
+                              <Widget02 header="0" mainText="Open Work Orders" icon="fa fa-cogs" color="primary" />
+                              <Widget02 header="0" mainText="Open Work Orders" icon="fa fa-cogs" color="primary" />
                             </Col>
+                          </Row>
+                          <Row>
                           </Row>
                         </Col>
                       </Row>
-                    </CardBody>
-                  </Card>
-                </Col>
-      </Row>
-
+                    </Col>
+                  </Row>
+                </CardBody>
+              </Card>
+          </Col>
+        </Row>
         <Row>
           <Col xs="12" md="12" className="mb-4">
             <Nav tabs>
@@ -212,14 +212,15 @@ class AssetDetails extends Component {
             <TabContent activeTab={this.state.activeTab[0]}>
               <TabPane tabId="1">
                 <Row>
-                  <Col xs="12" lg="6">
+                  <Col xs="8" lg="8">
                     <Card>
                       <CardHeader>
-                        <i className="fa fa-info"></i> Additional Asset Information
-      <div className="card-header-actions">
-                    <a href="#" className="card-header-action btn btn-setting">
-        <Button block color="primary" className="btn-square"><i className="icon-note"></i></Button></a>
-      </div>
+                        <i className="fa fa-info"></i> {this.state.a.name} Properties
+                        <div className="card-header-actions">
+                          <a href="#" className="card-header-action btn btn-setting">
+                            <i className="icon-note"></i>
+                          </a>
+                        </div>
                       </CardHeader>
                       <CardBody>
                         <Table responsive striped size="sm">
@@ -235,7 +236,7 @@ class AssetDetails extends Component {
               {this.tabPane()}
             </TabContent>
           </Col>
-</Row>
+        </Row>
         <Row>
           <Col xs="12" sm="6" md="4">
             <Card>
