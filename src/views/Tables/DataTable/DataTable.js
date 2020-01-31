@@ -19,6 +19,11 @@ class DataTable extends Component {
       alwaysShowAllBtns: false,
       withFirstAndLast: true
     }
+
+    this.editProp = {
+      mode: 'click',
+      blurToEscape: true
+    }
     
   }
   componentDidMount() {
@@ -46,7 +51,7 @@ class DataTable extends Component {
             </div>
           </CardHeader>
           <CardBody>
-            <BootstrapTable data={this.state.loc} version="4" striped hover pagination search options={this.options}>
+            <BootstrapTable data={this.state.loc} version="4" striped hover pagination search options={this.options} cellEdit={this.editProp}>
               <TableHeaderColumn dataField="name" dataSort dataFormat={this.nameFormat} >Name</TableHeaderColumn>
               <TableHeaderColumn isKey dataField="location">Email</TableHeaderColumn>
               <TableHeaderColumn dataField="age" dataSort>Age</TableHeaderColumn>

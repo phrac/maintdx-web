@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink } from 'reactstrap';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import 'react-bootstrap-table/dist//react-bootstrap-table-all.min.css';
 
 class AssetDetailsTabParts extends Component {
     constructor(props) {
@@ -7,7 +8,26 @@ class AssetDetailsTabParts extends Component {
 
         this.state = {
             timeout: 300,
+            parts: this.props.parts
         };
+
+        this.options = {
+            sortIndicator: true,
+            hideSizePerPage: true,
+            paginationSize: 3,
+            hidePageListOnlyOnePage: true,
+            clearSearch: false,
+            alwaysShowAllBtns: false,
+            withFirstAndLast: true,
+            stateSave: true
+        }
+
+        this.editProp = {
+            mode: 'click',
+            blurToEscape: true
+        }
+
+
     }
 
     componentDidMount() {
@@ -20,8 +40,19 @@ class AssetDetailsTabParts extends Component {
     }
 
     render() {
+        console.log(this.state.parts)
         return (
-                 <div>This is a test</div>
+            <div className="animated">
+              <BootstrapTable data={this.state.parts} version="4" striped hover pagination search options={this.options} cellEdit={this.editProp}>
+                <TableHeaderColumn hidden isKey dataField="id">ID</TableHeaderColumn>
+                    <TableHeaderColumn dataField="part_number" dataSort >Part #</TableHeaderColumn>
+                    <TableHeaderColumn dataField="description">Description</TableHeaderColumn>
+                    <TableHeaderColumn dataField="current_on_hand" dataSort>On Hand</TableHeaderColumn>
+                    <TableHeaderColumn dataField="" dataSort>On Reserve</TableHeaderColumn>
+                    <TableHeaderColumn dataField="reorder_point" dataSort>Reorder Point</TableHeaderColumn>
+                    <TableHeaderColumn dataField="max_on_hand" dataSort>Max on Hand</TableHeaderColumn>
+                  </BootstrapTable>
+            </div>
         );
     }
 }

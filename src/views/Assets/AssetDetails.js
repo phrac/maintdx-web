@@ -188,7 +188,7 @@ class AssetDetails extends Component {
               <TabPane tabId="6">
                 {this.state.activeTab[0] === '6' ?
                  <Suspense fallback="loading">
-                   <AssetDetailsTabParts />
+                 <AssetDetailsTabParts parts={this.state.a.parts}/>
                  </Suspense>
                  : null}
               </TabPane>

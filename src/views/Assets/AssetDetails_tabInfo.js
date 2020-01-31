@@ -8,6 +8,7 @@ class AssetDetailsTabInfo extends Component {
     this.state = {
       timeout: 300,
     };
+
   }
 
   render() {
@@ -30,9 +31,9 @@ class AssetDetailsTabInfo extends Component {
             <CardHeader>
               <i className="fa fa-info"></i> {this.props.asset_name} Properties
               <div className="card-header-actions">
-                <a href="#" className="card-header-action btn btn-setting">
+                <div className="card-header-action btn btn-setting">
                   <i className="icon-note"></i>
-                </a>
+                </div>
               </div>
             </CardHeader>
             <CardBody>
