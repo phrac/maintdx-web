@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 // import { renderRoutes } from 'react-router-config';
 import './App.scss';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
 
 const loading = () => <div className="animated fadeIn pt-3 text-center"><div className="sk-spinner sk-spinner-pulse"></div></div>;
 
@@ -14,10 +16,14 @@ const Register = React.lazy(() => import('./views/Pages/Register'));
 const Page404 = React.lazy(() => import('./views/Pages/Page404'));
 const Page500 = React.lazy(() => import('./views/Pages/Page500'));
 
-class App extends Component {
+const client = new ApolloClient({
+  uri: 'http://127.0.0.1:8000/graphql/',
+});
 
+class App extends Component {
   render() {
     return (
+      <ApolloProvider client={client}>
       <HashRouter>
           <React.Suspense fallback={loading()}>
             <Switch>
@@ -29,6 +35,7 @@ class App extends Component {
             </Switch>
           </React.Suspense>
       </HashRouter>
+      </ApolloProvider>
     );
   }
 }
