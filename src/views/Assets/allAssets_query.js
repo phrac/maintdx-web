@@ -53,21 +53,16 @@ function AllAssets() {
                 <Row>
                   <Col xs="6" sm="6" md="6">
                     <dl className="row">
-
                       <dt className="col-sm-3">Category</dt>
                       <dd className="col-sm-9"><Link to={`assets/${asset.category.id}`}>{asset.category.name}</Link></dd>
                       <dt className="col-sm-3">Make</dt>
                       <dd className="col-sm-9">{asset.make}</dd>
-
                       <dt className="col-sm-3">Model</dt>
                       <dd className="col-sm-9">{asset.model}</dd>
-
                       <dt className="col-sm-3">Serial #</dt>
                       <dd className="col-sm-9">{asset.serialNumber}</dd>
-
                       <dt className="col-sm-3">Install Date</dt>
                       <dd className="col-sm-9">{asset.installDate}</dd>
-
                       <dt className="col-sm-3">Department</dt>
                       <dd className="col-sm-9"><Link to ={`assets/${asset.department.id}`}>{asset.department.name}</Link></dd>
                     </dl>
