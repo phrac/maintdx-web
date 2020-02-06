@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from 'react';
-import { Card, CardBody, CardHeader, Nav, NavLink, NavItem, TabContent, TabPane, Col, Row, } from 'reactstrap';
-import Widget02 from '../Widgets/Widget02';
+import { Nav, NavLink, NavItem, TabContent, TabPane, Col, Row, } from 'reactstrap';
 import AssetCard from './assetDetails_query'
 
 const AssetDetailsTabInfo = React.lazy(() => import ('./AssetDetails_tabInfo'));
@@ -16,7 +15,6 @@ class AssetDetails extends Component {
       collapse: true,
       fadeIn: true,
       timeout: 300,
-      a: [],
       activeTab: new Array(10).fill('1')
     };
   }
@@ -121,13 +119,17 @@ class AssetDetails extends Component {
             <TabContent activeTab={this.state.activeTab[0]}>
               <TabPane tabId="1">
                 {this.state.activeTab[0] === '1' ?
-                 <AssetDetailsTabInfo id={this.props.match.params.id}/>
+                 <Suspense fallback="loading">
+                   <AssetDetailsTabInfo id={this.props.match.params.id}/>
+                 </Suspense>
                  : null}
               </TabPane>
 
               <TabPane tabId="6">
                 {this.state.activeTab[0] === '6' ?
-                 <AssetDetailsTabParts id={this.props.match.params.id}/>
+                 <Suspense fallback="loading">
+                   <AssetDetailsTabParts id={this.props.match.params.id}/>
+                 </Suspense>
                  : null}
               </TabPane>
 
