@@ -31,7 +31,6 @@ class AssetDetails extends Component {
     this.setState({
       activeTab: newArray,
     });
-    console.log(this.state.activeTab);
   }
 
 
@@ -128,8 +127,7 @@ class AssetDetails extends Component {
 
               <TabPane tabId="6">
                 {this.state.activeTab[0] === '6' ?
-                 <Suspense fallback="loading">
-                 </Suspense>
+                 <AssetDetailsTabParts id={this.props.match.params.id}/>
                  : null}
               </TabPane>
 

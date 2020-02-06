@@ -18,8 +18,7 @@ function AssetDetailsTabInfo({ id }) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading properties</p>;
 
-  var obj = JSON.parse(data.asset.properties)
-  const props = Object.entries(obj).map(([k, v]) => {
+  const props = Object.entries(JSON.parse(data.asset.properties)).map(([k, v]) => {
       return (
         <tr key={k}>
           <td>{k}</td>
