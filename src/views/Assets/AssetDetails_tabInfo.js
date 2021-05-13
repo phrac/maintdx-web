@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardBody, CardHeader, Table, Col, Row, } from 'reactstrap';
-import { gql } from 'apollo-boost';
-import { useQuery } from '@apollo/react-hooks';
+import { gql, useQuery } from '@apollo/client';
 
 const PROPERTIES = gql`
 query asset($id: ID!){

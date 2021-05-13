@@ -1,15 +1,22 @@
-// cssnano produces improper output in postcss-normalize-positions
-// clean-css
-// this is a temp fix to avoid the issue where
-// input:
-// background-position: center right $input-height-inner-quarter;
-// produces output:
-// background-position: 100% $input-height-inner-quarter;
+// todo: disabled button styles
+button {
+  &:disabled {
+    cursor: default;
+  }
+  &.disabled {
+    cursor: default;
+  }
+}
 
-.was-validated .form-control:valid, .form-control.is-valid {
-  background-position: right $input-height-inner-quarter center;
- }
+// todo: temp c-dark-theme plumbing for select option
+.c-dark-theme option {
+  background-color: #34343b;
+  border: 1px solid #23282c;
+}
 
-.was-validated .form-control:invalid, .form-control.is-invalid {
-  background-position: right $input-height-inner-quarter center;
- }
+// todo: brand button icon margin
+.btn-brand:not(:only-child) {
+  .c-icon {
+    margin-top: 0 !important;
+  }
+}

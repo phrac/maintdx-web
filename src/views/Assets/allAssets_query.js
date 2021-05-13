@@ -1,8 +1,7 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
 import { Card, CardBody, CardHeader, Col, Row, } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { gql } from 'apollo-boost';
+import { useQuery, gql } from '@apollo/client'
 
 const ALL_ASSETS = gql`
 query{
@@ -47,7 +46,7 @@ function AllAssets() {
           <CardBody>
             <Row>
               <Col xs="4" sm="3" md="3">
-                <Link to={`assets/${asset.id}`}><img alt={asset.name} class="img-thumbnail" src={asset.imageUrl}/></Link>
+                <Link to={`${asset.id}`}><img alt={asset.name} class="img-thumbnail" src={asset.imageUrl}/></Link>
               </Col>
               <Col xs="8" sm="9" md="9">
                 <Row>
@@ -64,7 +63,7 @@ function AllAssets() {
                       <dt className="col-sm-3">Install Date</dt>
                       <dd className="col-sm-9">{asset.installDate}</dd>
                       <dt className="col-sm-3">Department</dt>
-                      <dd className="col-sm-9"><Link to ={`assets/${asset.department.id}`}>{asset.department.name}</Link></dd>
+                      <dd className="col-sm-9"><Link to ={`${asset.department.id}`}>{asset.department.name}</Link></dd>
                     </dl>
                   </Col>
                 </Row>
